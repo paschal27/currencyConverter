@@ -8,10 +8,10 @@ import { ConvertServiceService } from '../convert-service.service';
 })
 export class ConverterComponent {
 
-  currency: string = "NGN"
+  currency: string = "USD"
   result: any
   aResult: any
-  curr = ["new", "old"]
+  toCurrency: string = "NGN" 
 
   CurrencyList = [
     {code:"AFN",text:"Afghanistan Afghanis – AFN"},
@@ -126,7 +126,6 @@ export class ConverterComponent {
 
   ngOnInit(): void {
     this.convertCurrency()
-    console.log(this.aResult)
   }
 
   convertCurrency() {
@@ -138,6 +137,22 @@ export class ConverterComponent {
       this.aResult = JSON.stringify(this.result.rates)
 
     }))
+  }
+
+  onSelected(event: any) {
+    debugger
+    this.currency = event.target.value
+    console.log( this.currency)
+    this.convertCurrency()
+  }
+
+  onSelectedB(event: any) {
+    debugger
+    this.toCurrency = event.target.value
+  }
+
+  calculate() {
+
   }
 
 }
