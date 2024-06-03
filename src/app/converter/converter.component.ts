@@ -12,6 +12,8 @@ export class ConverterComponent {
   result: any
   aResult: any
   toCurrency: string = "NGN" 
+  amount: number = 1
+  total: any
 
   CurrencyList = [
     {code:"AFN",text:"Afghanistan Afghanis – AFN"},
@@ -134,7 +136,7 @@ export class ConverterComponent {
       debugger
       console.log(res)
       this.result = res
-      this.aResult = JSON.stringify(this.result.rates)
+      this.total = this.amount * this.result.rates[this.currency] * this.result.rates[this.toCurrency]
 
     }))
   }
@@ -151,8 +153,15 @@ export class ConverterComponent {
     this.toCurrency = event.target.value
   }
 
-  calculate() {
+  getInput(event: any) {
+    this.amount = event.target.value
+    this.convertCurrency()
+    console.log(this.amount)
+    console.log(this.total)
+  }
 
+  calculate() {
+    this.convertCurrency()
   }
 
 }
