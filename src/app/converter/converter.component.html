@@ -37,15 +37,16 @@
             </div>
                 
             <div>
-                <button class="btn btn-success mt-3 ms-2" style="background: linear-gradient(blue, rgb(22, 225, 232))" (click)="calculate()"><strong>Convert</strong></button>
+                <button class="btn btn-success mt-2 mb-2 ms-2" style="background: linear-gradient(blue, rgb(22, 225, 232))" (click)="calculate()"><strong>Convert</strong></button>
             </div>
-            <div class="result mt-5 text-center">
-                <label for="result">USD - EUR = {{total}}</label>
-            </div>
+            
         </ul>
         <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <!-- <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a> -->
+            <div class="result text-center">
+                <label for="result"><strong>{{currency}} --- {{toCurrency}} = {{total}}</strong></label>
+            </div>
         </div>
     </div>
 </div>
